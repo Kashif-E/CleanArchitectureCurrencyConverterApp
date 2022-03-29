@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">CurrencyConverterApp</string>
+    <string name="message_no_network_connected_str">No network connected!</string>
+    <string name="message_something_went_wrong_str">Something went wrong!</string>
+    <string name="action_retry_str">Retry</string>
+    <string name="enter_amount_error">Please Enter Amount </string>
+    <string name="no_data_found">No data found.</string>
+    <string name="timeout">Server time out.</string>
+    <string name="server_is_busy">Server is busy.</string>
+    <string name="no_internet_connection">No internet.</string>
+    <string name="unauthorized">Un Authorized.</string>
+    <string name="internal_server_error">Internal server error.</string>
+    <string name="bad_request">Bad request.</string>
+    <string name="confirm">confirm.</string>
+    <string name="not_found">Not found.</string>
+    <string name="not_acceptable">Not acceptable.</string>
+    <string name="service_unavailable">Service unavailable.</string>
+    <string name="forbidden">Forbidden.</string>
+    <string name="enter_amount">Enter Amount</string>
+</resources>
