@@ -2,7 +2,7 @@ package com.example.currencyconverterapp.data.local.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.currencyconverterapp.utils.Constants.TABLE_CURRENCY_RATES
+import com.example.currencyconverterapp.domain.utils.Constants.TABLE_CURRENCY_RATES
 
 @Entity(tableName = TABLE_CURRENCY_RATES)
 data class CurrencyRatesEntity(

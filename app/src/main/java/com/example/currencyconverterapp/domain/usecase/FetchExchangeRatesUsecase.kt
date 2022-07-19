@@ -1,11 +1,11 @@
-package com.example.currencyconverterapp.data.usecase
+package com.example.currencyconverterapp.domain.usecase
 
 import com.example.currencyconverterapp.data.local.models.CurrencyRatesEntity
 import com.example.currencyconverterapp.data.local.repository.LocalRepository
 import com.example.currencyconverterapp.data.model.toDataBaseModel
 import com.example.currencyconverterapp.data.remote.DataState
 import com.example.currencyconverterapp.data.repository.Repository
-import com.example.currencyconverterapp.utils.Constants
+import com.example.currencyconverterapp.domain.utils.Constants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
@@ -22,37 +22,25 @@ class FetchExchangeRatesUsecase @Inject constructor(
         amount: Double
     ): Flow<DataState<List<CurrencyRatesEntity>>> {
         return flow {
-            val responseFromDatabase = localRepo.getAllCurrencyRates()
-            if ( responseFromDatabase.isNullOrEmpty().not()){
-                var convertedList: List<CurrencyRatesEntity> = ArrayList()
-                val currencyValue = getCurrencyValue(responseFromDatabase,amount,source)
-                convertedList = createConvertedList(responseFromDatabase, currencyValue)
-                emit(DataState.Success(convertedList))
-            } else {
-                val rates = repository.getExchangeRates()
-                rates.collect { response ->
-                    when (response) {
-                        is DataState.Success -> {
-                            var convertedList: List<CurrencyRatesEntity> = ArrayList()
-                            var exchangeRatelist: List<CurrencyRatesEntity> = ArrayList()
-                            if (response.data!!.success) {
-                                exchangeRatelist = response.data.toDataBaseModel()
-                                if (exchangeRatelist.isNotEmpty()) {
-                                    val currencyValue = getCurrencyValue(exchangeRatelist,amount,source)
-                                    convertedList = createConvertedList(exchangeRatelist, currencyValue)
-                                }
-                                localRepo.insertCurrencyRates(exchangeRatelist)
-                                emit(DataState.Success(convertedList))
-                            } else {
-                                emit(DataState.Error<List<CurrencyRatesEntity>>(response.error))
-                            }
+
+            repository.getExchangeRates().collect { response ->
+                when (response) {
+                    is DataState.Success -> {
+                        var convertedList: List<CurrencyRatesEntity> = ArrayList()
+
+                        if (response.data?.isNotEmpty() == true) {
+                            val currencyValue =
+                                getCurrencyValue(response.data, amount, source)
+                            convertedList = createConvertedList(response.data, currencyValue)
                         }
-                        is DataState.Error -> {
-                            emit(DataState.Error<List<CurrencyRatesEntity>>(response.error))
-                        }
+                        emit(DataState.Success(convertedList))
+                    }
+                    else -> {
+
                     }
                 }
             }
+
         }.flowOn(Dispatchers.IO)
     }
 

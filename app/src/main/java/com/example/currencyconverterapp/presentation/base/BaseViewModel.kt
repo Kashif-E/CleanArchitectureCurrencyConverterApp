@@ -1,4 +1,4 @@
-package com.example.currencyconverterapp.base
+package com.example.currencyconverterapp.presentation.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

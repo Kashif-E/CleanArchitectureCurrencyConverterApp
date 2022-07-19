@@ -6,8 +6,10 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.currencyconverterapp.data.local.models.CurrencyNamesEntity
 import com.example.currencyconverterapp.data.local.models.CurrencyRatesEntity
+import com.example.currencyconverterapp.data.local.models.asEntity
 import com.example.currencyconverterapp.data.local.repository.LocalRepository
 import com.example.currencyconverterapp.data.model.toDataBaseModel
+
 import com.example.currencyconverterapp.data.remote.DataState
 import com.example.currencyconverterapp.data.repository.Repository
 import dagger.assisted.Assisted
@@ -34,7 +36,7 @@ class FetchDataWorker @AssistedInject constructor(
                     when (getCurrenciesResponse) {
                         is DataState.Success -> {
                             result = if (getCurrenciesResponse.data != null) {
-                                saveCurrencyNamesIntoDatabase(getCurrenciesResponse.data.toDataBaseModel())
+                                saveCurrencyNamesIntoDatabase(getCurrenciesResponse.data.asEntity())
                                 Result.success()
                             } else {
                                 Result.failure()
@@ -48,7 +50,7 @@ class FetchDataWorker @AssistedInject constructor(
                     when (getExchangeRatesResponse) {
                         is DataState.Success -> {
                             result = if (getExchangeRatesResponse.data != null) {
-                                saveCurrencyRatesIntoDatabase(getExchangeRatesResponse.data.toDataBaseModel())
+                                saveCurrencyRatesIntoDatabase(getExchangeRatesResponse.data)
                                 Result.success()
                             } else {
                                 Result.failure()

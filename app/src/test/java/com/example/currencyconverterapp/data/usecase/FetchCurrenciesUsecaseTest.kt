@@ -3,6 +3,7 @@ package com.example.currencyconverterapp.data.usecase
 import com.example.currencyconverterapp.MockTestUtil
 import com.example.currencyconverterapp.data.local.repository.LocalRepository
 import com.example.currencyconverterapp.data.repository.Repository
+import com.example.currencyconverterapp.domain.usecase.FetchCurrenciesUsecase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK

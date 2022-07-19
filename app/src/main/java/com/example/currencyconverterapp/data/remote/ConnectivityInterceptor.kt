@@ -3,7 +3,7 @@ package com.example.currencyconverterapp.data.remote
 
 
 import com.example.currencyconverterapp.MyApplication
-import com.example.currencyconverterapp.utils.isInternetAvailable
+import com.example.currencyconverterapp.domain.utils.isInternetAvailable
 import okhttp3.Interceptor
 import okhttp3.Response
 import okio.IOException

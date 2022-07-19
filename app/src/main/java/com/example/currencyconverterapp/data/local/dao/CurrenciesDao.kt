@@ -6,8 +6,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.currencyconverterapp.data.local.models.CurrencyNamesEntity
 import com.example.currencyconverterapp.data.local.models.CurrencyRatesEntity
-import com.example.currencyconverterapp.utils.Constants.TABLE_CURRENCY
-import com.example.currencyconverterapp.utils.Constants.TABLE_CURRENCY_RATES
+import com.example.currencyconverterapp.domain.utils.Constants.TABLE_CURRENCY
+import com.example.currencyconverterapp.domain.utils.Constants.TABLE_CURRENCY_RATES
 
 @Dao
 abstract class CurrenciesDao {

@@ -9,13 +9,14 @@ suspend fun <T> ApiResponse<T>.onSuccessSuspend(
     onResultNull: suspend DataState.Error<T>.() -> Unit
 ): ApiResponse<T> {
     if (this is ApiResponse.ApiSuccessResponse) {
-        this.data?.let {
+        if (data  != null){
             onResult(DataState.Success(this.data))
-        } ?: run {
+        }else{
             onResultNull(
                 DataState.Error(handleException<Int>(response.code(), "Something went wrong."))
             )
         }
+
 
     }
     return this

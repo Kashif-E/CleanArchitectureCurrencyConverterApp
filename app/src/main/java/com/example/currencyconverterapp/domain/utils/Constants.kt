@@ -1,4 +1,4 @@
-package com.example.currencyconverterapp.utils
+package com.example.currencyconverterapp.domain.utils
 
 object Constants {
 

@@ -6,9 +6,11 @@
     <data>
 
         <import type="android.view.View"/>
+
+        <import type="com.example.currencyconverterapp.presentation.UIState"/>
         <variable
             name="viewModel"
-            type="com.example.currencyconverterapp.ui.home.MainViewModel" />
+            type="com.example.currencyconverterapp.presentation.home.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +19,7 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:background="@color/color_background"
-        tools:context=".ui.home.MainActivity">
+        tools:context=".presentation.home.MainActivity">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputFieldLayout"
@@ -77,7 +79,6 @@
                 <ProgressBar
                     android:id="@+id/progressBarCurrencies"
                     android:layout_width="wrap_content"
-                    android:visibility="@{viewModel.loading?View.VISIBLE: View.GONE}"
                     android:layout_height="@dimen/height_0x"
                     android:indeterminateTint="@android:color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -126,7 +127,6 @@
 
         <ImageView
             android:id="@+id/ivConversionIcon"
-            android:visibility="@{viewModel.loading?View.VISIBLE: View.GONE}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:loadImage="@{9}"

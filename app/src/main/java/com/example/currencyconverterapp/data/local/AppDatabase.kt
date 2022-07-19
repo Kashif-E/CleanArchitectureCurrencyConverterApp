@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.currencyconverterapp.data.local.dao.CurrenciesDao
 import com.example.currencyconverterapp.data.local.models.CurrencyNamesEntity
 import com.example.currencyconverterapp.data.local.models.CurrencyRatesEntity
-import com.example.currencyconverterapp.utils.Constants.DATABASE_NAME
+import com.example.currencyconverterapp.domain.utils.Constants.DATABASE_NAME
 
 @Database(
     entities = [CurrencyRatesEntity::class, CurrencyNamesEntity::class],

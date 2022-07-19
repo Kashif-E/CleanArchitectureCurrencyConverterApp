@@ -1,9 +1,9 @@
-package com.example.currencyconverterapp.di.modules
+package com.example.currencyconverterapp.domain.di.modules
 
 import com.example.currencyconverterapp.BuildConfig
 import com.example.currencyconverterapp.data.remote.ApiResponseCallAdapterFactory
 import com.example.currencyconverterapp.data.remote.ApiService
-import com.example.currencyconverterapp.utils.Constants
+import com.example.currencyconverterapp.domain.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

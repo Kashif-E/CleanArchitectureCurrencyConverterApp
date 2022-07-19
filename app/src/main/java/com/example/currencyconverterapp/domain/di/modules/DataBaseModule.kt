@@ -1,4 +1,4 @@
-package com.example.currencyconverterapp.di.modules
+package com.example.currencyconverterapp.domain.di.modules
 
 import android.content.Context
 import com.example.currencyconverterapp.data.local.AppDatabase

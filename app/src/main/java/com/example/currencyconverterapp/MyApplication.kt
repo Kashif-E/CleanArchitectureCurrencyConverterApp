@@ -8,7 +8,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.example.currencyconverterapp.data.worker.FetchDataWorker
-import com.example.currencyconverterapp.utils.Constants.WORKER_TAG
+import com.example.currencyconverterapp.domain.utils.Constants.WORKER_TAG
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrencyConverterApp">
         <activity
-            android:name=".ui.home.MainActivity"
+            android:name=".presentation.home.MainActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
